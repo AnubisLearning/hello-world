@@ -4,20 +4,28 @@ pipeline{
 	stages{
 		stage('Compiler'){
 			steps{
-			withMaven(maaven: '3_1_2'){
+			withMaven(maven: '3_1_2'){
 			sh 'mvn clean compile'}
 			}
 		}
 		stage('Testing'){
 			steps{
-			withMaven(maaven: '3_1_2'){
+			withMaven(maven: '3_1_2'){
 			sh 'mvn test'}
 			}
 		}
-		stage('Deployment'){
+		stage('Packaging'){
 			steps{
-			withMaven(maaven: '3_1_2'){
-			sh 'mvn deploy'}
+			withMaven(maven: '3_1_2'){
+			sh 'mvn install'}
+			}
+		}
+		stage('PushToGit'){
+			steps{
+			Model m = readMavenPom file: 'pom.xml'
+			def groupId = m.groupId.split( '\\.' )
+			def user = groupId[groupId.size()-1].trim()
+			def artifactId = m.artifactId
 			}
 		}
 	
