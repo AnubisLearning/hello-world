@@ -30,7 +30,6 @@ pipeline{
 		//	def m = readMavenPom file: 'pom.xml'
 		//	def groupId = m.groupId
 		//	}
-		}
+		//}
 	
-	//}
-}
+	}
