@@ -22,10 +22,8 @@ pipeline{
 		}
 		stage('PushToGit'){
 			steps{
-			Model m = readMavenPom file: 'pom.xml'
-			def groupId = m.groupId.split( '\\.' )
-			def user = groupId[groupId.size()-1].trim()
-			def artifactId = m.artifactId
+			def m = readMavenPom file: 'pom.xml'
+			def groupId = m.groupId
 			}
 		}
 	
