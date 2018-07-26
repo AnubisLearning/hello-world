@@ -1,30 +1,35 @@
 pipeline{
 	agent any
-	
+	environment{
+		Akey = '~/.ssh/mysc2key.pem'
+		ProdServer = '18.220.200.244'
+		user = 'ec2-user'
+	}
 	stages{
-		stage('Compiler'){
+		stage('Conn test'){
 			steps{
-			withMaven(maven: '3_1_2'){
-			sh 'mvn clean compile'}
+				logcred = ${user}+"-"${ProdServer}
+				sh 'ssh ${logcred} ${Akey}'
+				sh 'pwd'}
 			}
 		}
-		stage('Testing'){
-			steps{
-			withMaven(maven: '3_1_2'){
-			sh 'mvn test'}
-			}
-		}
-		stage('Packaging'){
-			steps{
-			withMaven(maven: '3_1_2'){
-			sh 'mvn install'}
-			}
-		}
-		stage('PushToGit'){
-			steps{
-			def m = readMavenPom file: 'pom.xml'
-			def groupId = m.groupId
-			}
+		//stage('Testing'){
+		//	steps{
+		//	withMaven(maven: '3_1_2'){
+		//	sh 'mvn test'}
+		//	}
+		//}
+		//stage('Packaging'){
+		//	steps{
+		//	withMaven(maven: '3_1_2'){
+		//	sh 'mvn install'}
+		//	}
+		//}
+		//stage('PushToGit'){
+		//	steps{
+		//	def m = readMavenPom file: 'pom.xml'
+		//	def groupId = m.groupId
+		//	}
 		}
 	
 	}
