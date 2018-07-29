@@ -1,14 +1,14 @@
 pipeline{
 	agent any
 	environment{
-		Akey = '~/.ssh/mysc2key.pem'
-		ProdServer = '18.220.200.244'
-		user = 'ec2-user'
+		Akey = "~/.ssh/mysc2key.pem'
+		ProdServer = "ec2-user@18.220.200.244"
+		//user = 'ec2-user'
 	}
 	stages{
 		stage('Conn test'){
 			steps{
-				logcred = "${user}@${ProdServer}"
+				logcred = ${ProdServer}
 				sh 'ssh ${logcred} ${Akey}'
 				sh 'pwd'}
 			}
