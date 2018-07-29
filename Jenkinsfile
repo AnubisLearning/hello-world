@@ -8,7 +8,7 @@ pipeline{
 	stages{
 		stage('Conn test'){
 			steps{
-				logcred = ${ProdServer}
+				logcred = "${ProdServer}"
 				sh 'ssh ${logcred} ${Akey}'
 				sh 'pwd'}
 			}
