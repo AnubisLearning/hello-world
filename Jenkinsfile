@@ -1,7 +1,7 @@
 pipeline{
 	agent any
 	environment{
-		Akey = "~/.ssh/mysc2key.pem'
+		Akey = "~/.ssh/mysc2key.pem"
 		ProdServer = "ec2-user@18.220.200.244"
 		//user = 'ec2-user'
 	}
