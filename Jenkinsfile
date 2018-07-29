@@ -9,7 +9,7 @@ pipeline{
 		stage('Conn test'){
 			steps{
 				//logcred = "${ProdServer}"
-				sh 'sudo su'
+				//sh 'sudo su'
 				sh 'ssh ${ProdServer} -i ${Akey}'
 				sh 'pwd'}
 			}
