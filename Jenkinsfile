@@ -11,7 +11,7 @@ pipeline{
 				//logcred = "${ProdServer}"
 				//sh 'sudo su'
 				sh 'ssh -tt ${ProdServer} -i ${Akey}'
-				sh 'sudo yum update'
+				//sh 'sudo yum update'
 				sh 'pwd'}
 			}
 		}
