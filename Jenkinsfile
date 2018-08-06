@@ -1,7 +1,7 @@
 pipeline{
 	agent any
 	environment{
-		Akey = "/home/edureka/.ssh/ec2key.pem"
+		Akey = "/var/lib/jenkins/ec2key.pem"
 		ProdServer = "ec2-user@18.217.197.120"
 		//user = 'ec2-user'
 	}
