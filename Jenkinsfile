@@ -12,7 +12,7 @@ pipeline{
 				//sh 'sudo su'
 				sh 'ssh -tt ${ProdServer} -i ${Akey}'
 				//sh 'sudo yum update'
-				sh 'pwd'}
+				sh 'whoami'}
 			}
 		}
 		//stage('Testing'){
