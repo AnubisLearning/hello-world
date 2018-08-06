@@ -1,8 +1,8 @@
 pipeline{
 	agent any
 	environment{
-		Akey = "/var/lib/jenkins/mysc2key.pem"
-		ProdServer = "ec2-user@18.220.200.244"
+		Akey = "/home/edureka/.ssh/ec2key.pem"
+		ProdServer = "ec2-user@18.217.197.120"
 		//user = 'ec2-user'
 	}
 	stages{
