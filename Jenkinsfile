@@ -10,7 +10,7 @@ pipeline{
 			steps{
 				//logcred = "${ProdServer}"
 				//sh 'sudo su'
-				sh 'ssh -tt ${ProdServer} -i ${Akey}'
+				sh 'ssh ${ProdServer} -i ${Akey}'
 				//sh 'sudo yum update'
 				sh 'whoami'}
 			}
