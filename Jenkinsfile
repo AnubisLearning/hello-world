@@ -2,7 +2,7 @@ pipeline{
 	agent any
 	environment{
 		Akey = "/var/lib/jenkins/ec2key.pem"
-		ProdServer = "ec2-user@18.217.197.120"
+		ProdServer = "ec2-user@18.223.3.165"
 		//user = 'ec2-user'
 	}
 	stages{
