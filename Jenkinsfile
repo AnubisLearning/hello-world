@@ -33,5 +33,12 @@ pipeline{
 		//	def groupId = m.groupId
 		//	}
 		//}
-	
-	}
+	post {
+        always {
+            emailext body: 'Jenkins Build Status', 
+		    recipientProviders: [[$class: 'DevelopersRecipientProvider'], 
+					 [$class: 'RequesterRecipientProvider']], 
+		    subject: 'Jenkins Build Status', to: 'sandesh.v.meshram@gmail.com'
+        }
+    }
+}
