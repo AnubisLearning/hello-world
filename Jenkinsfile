@@ -6,13 +6,15 @@ pipeline{
 		//user = 'ec2-user'
 	}
 	stages{
-		stage('Conn test'){
+				
+		stage('Create Docker Image'){
 			steps{
+				sh 'docker build -t tomsample .'
 				//logcred = "${ProdServer}"
 				//sh 'sudo su'
-				sh 'ssh ${ProdServer} -i ${Akey}'
+				//sh 'ssh ${ProdServer} -i ${Akey}'
 				//sh 'sudo yum update'
-				sh 'whoami'}
+				//sh 'whoami'}
 			}
 		}
 		//stage('Testing'){
@@ -33,12 +35,5 @@ pipeline{
 		//	def groupId = m.groupId
 		//	}
 		//}
-	post {
-        always {
-            emailext body: 'Jenkins Build Status', 
-		    recipientProviders: [[$class: 'DevelopersRecipientProvider'], 
-					 [$class: 'RequesterRecipientProvider']], 
-		    subject: 'Jenkins Build Status', to: 'sandesh.v.meshram@gmail.com'
-        }
-    }
+	
 }
