@@ -9,7 +9,9 @@ pipeline{
 				
 		stage('Create Docker Image'){
 			steps{
+				sh 'cp /home/edureka/sample.war /var/lib/jenkins/workspace/jen_aws/sample.war'
 				sh 'docker build -t tomsample .'
+				sh 'docker service create --name sampleswarmapp tomsamle'
 				//logcred = "${ProdServer}"
 				//sh 'sudo su'
 				//sh 'ssh ${ProdServer} -i ${Akey}'
