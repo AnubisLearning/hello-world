@@ -13,7 +13,7 @@ pipeline{
 				//sh 'PWD'
 				sh 'wget https://tomcat.apache.org/tomcat-7.0-doc/appdev/sample/sample.war'
 				sh 'docker build -t tomsample_project .'
-				sh 'docker swarm init'
+				sh 'docker swarm init --advertise-addr 192.168.1.100'
 				sh 'docker service create --name sampleswarmapp tomsamle_project'
 				//logcred = "${ProdServer}"
 				//sh 'sudo su'
