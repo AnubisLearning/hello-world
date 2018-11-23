@@ -12,8 +12,9 @@ pipeline{
 				//sh 'cp /home/edureka/sample.war /var/lib/jenkins/workspace/jen_aws_Dockerised_Pipeline/sample.war'
 				//sh 'PWD'
 				sh 'wget https://tomcat.apache.org/tomcat-7.0-doc/appdev/sample/sample.war'
-				sh 'docker build -t tomsample .'
-				sh 'docker service create --name sampleswarmapp tomsamle'
+				sh 'docker build -t tomsample_project .'
+				sh 'docker swarm init'
+				sh 'docker service create --name sampleswarmapp tomsamle_project'
 				//logcred = "${ProdServer}"
 				//sh 'sudo su'
 				//sh 'ssh ${ProdServer} -i ${Akey}'
